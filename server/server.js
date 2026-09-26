@@ -44,6 +44,21 @@ app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', app: 'SecureVault API', db: 'Neon PostgreSQL', timestamp: new Date().toISOString() });
 });
 
+app.get('/', (req, res) => {
+  res.json({
+    status: 'online',
+    app: 'SecureVault Backend API',
+    database: 'Neon PostgreSQL (Connected)',
+    health: '/api/health',
+    endpoints: {
+      auth: '/api/auth',
+      pin: '/api/pin',
+      vault: '/api/vault',
+      audit: '/api/audit'
+    }
+  });
+});
+
 // Lazy database initialization ensuring zero-delay connections in serverless environments (Vercel)
 let isDbReady = false;
 let dbInitPromise = null;

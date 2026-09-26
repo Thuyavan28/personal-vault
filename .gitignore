@@ -1,0 +1,39 @@
+# Dependencies
+node_modules/
+client/node_modules/
+server/node_modules/
+
+# Production builds
+client/dist/
+dist/
+
+# Environment files with sensitive credentials (keep .env.example)
+.env
+client/.env
+server/.env
+*.env.local
+*.env.development.local
+*.env.test.local
+*.env.production.local
+!.env.example
+!client/.env.example
+!server/.env.example
+
+# Encrypted file storage at rest
+server/uploads/*.enc
+!server/uploads/.gitkeep
+server/data/
+
+# Logs and debug
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Test temporary files
+testsprite_tests/tmp/
+testsprite_tests/tmp/config.json

@@ -1,0 +1,260 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-accent: #cc001e;
+  --color-surface: #f0f4f5;
+  --color-base: #0e0e0e;
+}
+
+body {
+  margin: 0;
+  background-color: #f0f4f5;
+  color: #0e0e0e;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  font-weight: 700;
+}
+
+* {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* Crisp Border Card Styles */
+.vault-card {
+  background-color: #ffffff;
+  border: 2px solid #0e0e0e;
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 12px rgba(14, 14, 14, 0.05);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.vault-card:hover {
+  border-color: #cc001e;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(204, 0, 30, 0.15);
+}
+
+/* Primary Action Button with Crisp Solid Border - No Gradients */
+.neon-button {
+  background-color: #cc001e;
+  color: #ffffff;
+  font-weight: 800;
+  border: 2px solid #cc001e;
+  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 3px 10px rgba(204, 0, 30, 0.25);
+}
+
+.neon-button:hover {
+  background-color: #b00019;
+  border-color: #b00019;
+  transform: translateY(-1px);
+  box-shadow: 0 5px 15px rgba(204, 0, 30, 0.35);
+}
+
+.neon-button:active {
+  transform: translateY(1px);
+}
+
+/* Secondary Button with crisp border */
+.outline-button {
+  background-color: #ffffff;
+  color: #0e0e0e;
+  font-weight: 800;
+  border: 2px solid #0e0e0e;
+  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.outline-button:hover {
+  border-color: #cc001e;
+  color: #cc001e;
+  background-color: #f0f4f5;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f0f4f5;
+  border-left: 2px solid #d0d7de;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #0e0e0e;
+  border-radius: 9999px;
+  border: 2px solid #f0f4f5;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #cc001e;
+}
+
+/* PIN Verification & Unlock Animations */
+@keyframes pinWave {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    background-color: #cc001e;
+    box-shadow: 0 0 0 rgba(204, 0, 30, 0);
+  }
+  50% {
+    transform: translateY(-7px) scale(1.35);
+    background-color: #e61937;
+    box-shadow: 0 0 14px rgba(204, 0, 30, 0.7);
+  }
+}
+
+@keyframes pinScanner {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes unlockPop {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.15);
+  }
+  75% {
+    transform: scale(0.96);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes rippleRing {
+  0% {
+    transform: scale(0.85);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(2.3);
+    opacity: 0;
+  }
+}
+
+@keyframes successGlowModal {
+  0%, 100% {
+    box-shadow: 0 20px 60px rgba(14, 14, 14, 0.25), 0 0 0 0 rgba(204, 0, 30, 0);
+  }
+  50% {
+    box-shadow: 0 20px 60px rgba(14, 14, 14, 0.3), 0 0 35px 2px rgba(204, 0, 30, 0.45);
+  }
+}
+
+@keyframes checkDraw {
+  0% {
+    stroke-dashoffset: 50;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.animate-pin-wave-0 {
+  animation: pinWave 0.9s ease-in-out infinite 0ms;
+}
+.animate-pin-wave-1 {
+  animation: pinWave 0.9s ease-in-out infinite 140ms;
+}
+.animate-pin-wave-2 {
+  animation: pinWave 0.9s ease-in-out infinite 280ms;
+}
+.animate-pin-wave-3 {
+  animation: pinWave 0.9s ease-in-out infinite 420ms;
+}
+
+.animate-pin-scanner {
+  animation: pinScanner 1.1s ease-in-out infinite;
+}
+
+.animate-unlock-pop {
+  animation: unlockPop 0.55s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.animate-ripple-ring {
+  animation: rippleRing 1.2s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+
+.animate-success-glow {
+  animation: successGlowModal 1.5s ease-in-out infinite;
+}
+
+.animate-check-draw {
+  stroke-dasharray: 50;
+  animation: checkDraw 0.45s ease-out forwards 0.1s;
+}
+
+/* Profile Setup Styles — Purple/Violet Theme */
+.profile-setup-label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 0.4rem;
+}
+
+.profile-setup-input {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border-radius: 1rem;
+  border: 2px solid #e5e7eb;
+  outline: none;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #1f2937;
+  background: #ffffff;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.profile-setup-input::placeholder {
+  color: #9ca3af;
+  font-weight: 500;
+}
+
+.profile-setup-input:focus {
+  border-color: #cc001e;
+  box-shadow: 0 0 0 3px rgba(204, 0, 30, 0.15);
+}
+
+.profile-setup-input:disabled {
+  background: #f9fafb;
+  cursor: not-allowed;
+}
+
+/* Hide the Google GSI fallback button once the real GSI button renders */
+#google-signin-button:not(:empty) + .google-fallback-btn {
+  display: none;
+}
+
+/* Horizontal slidebar scroll utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+

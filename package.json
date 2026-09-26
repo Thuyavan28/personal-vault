@@ -1,0 +1,19 @@
+{
+  "name": "securevault",
+  "version": "1.0.0",
+  "description": "SecureVault — Personal Document & Password Manager",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently -n \"SERVER,CLIENT\" -c \"cyan,magenta\" \"npm run server\" \"npm run client\"",
+    "all": "npm run dev",
+    "start": "npm run dev",
+    "dev:all": "npm run dev",
+    "server": "npm run start --prefix server",
+    "client": "npm run dev --prefix client",
+    "test": "node tests/api.test.js",
+    "benchmark": "node tests/benchmark_speed.js"
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.5"
+  }
+}

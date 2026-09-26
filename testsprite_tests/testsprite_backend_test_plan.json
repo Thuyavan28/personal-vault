@@ -1,0 +1,47 @@
+[
+  {
+    "id": "TC001",
+    "title": "post api auth login with valid credentials",
+    "description": "Verify that users can successfully sign in with valid email and password credentials via POST /api/auth/login."
+  },
+  {
+    "id": "TC002",
+    "title": "post api auth signup with new account details",
+    "description": "Verify that users can create a new vault account by submitting valid email and password via POST /api/auth/signup."
+  },
+  {
+    "id": "TC003",
+    "title": "put api auth profile to complete first time profile setup",
+    "description": "Verify that authenticated users can complete their profile setup by submitting full name, optional phone number, and avatar photo via PUT /api/auth/profile."
+  },
+  {
+    "id": "TC004",
+    "title": "post api pin create to setup 4 digit security pin",
+    "description": "Verify that authenticated users can set up a 4-digit security PIN by submitting matching PIN entries via POST /api/pin/create, and receive success confirmation."
+  },
+  {
+    "id": "TC005",
+    "title": "get api vault items to browse and search vault items",
+    "description": "Verify that authenticated users can retrieve and filter vault items by category and search terms via GET /api/vault/items, and see correct filtered results."
+  },
+  {
+    "id": "TC006",
+    "title": "post api vault items to add new document item",
+    "description": "Verify that authenticated users can add a new document item to the vault by uploading a file via POST /api/vault/items and receive a celebratory success popup."
+  },
+  {
+    "id": "TC007",
+    "title": "post api vault credentials to add new password credential",
+    "description": "Verify that authenticated users can add a new password credential to the vault by submitting generated or entered password via POST /api/vault/credentials and receive a celebratory success popup."
+  },
+  {
+    "id": "TC008",
+    "title": "post api vault items id unlock to decrypt locked item",
+    "description": "Verify that authenticated users can unlock a locked vault item by submitting the correct 4-digit PIN via POST /api/vault/items/:id/unlock and view decrypted sensitive details."
+  },
+  {
+    "id": "TC009",
+    "title": "post api pin verify to enforce pin verification and lockout",
+    "description": "Verify that the system enforces PIN verification via POST /api/pin/verify, locks out users for 30 seconds after 5 consecutive failed attempts, and prevents further unlock attempts during lockout."
+  }
+]

@@ -1,0 +1,726 @@
+[
+  {
+    "id": "TC001",
+    "title": "Create a matching 4-digit PIN",
+    "description": "A user can set and confirm a four-digit PIN and complete PIN setup.",
+    "category": "4-Digit Security PIN Setup",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Open the vault access flow"
+      },
+      {
+        "type": "action",
+        "description": "Switch to the create account view"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the email field with {{LOGIN_USER}}"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the password field with {{LOGIN_PASSWORD}}"
+      },
+      {
+        "type": "action",
+        "description": "Submit the form"
+      },
+      {
+        "type": "action",
+        "description": "Enter a 4-digit PIN"
+      },
+      {
+        "type": "action",
+        "description": "Re-enter the same 4-digit PIN"
+      },
+      {
+        "type": "action",
+        "description": "Complete PIN setup"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the unlock success animation is visible"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC002",
+    "title": "Sign in to an existing vault account",
+    "description": "A returning user can sign in with valid credentials and enter the vault.",
+    "category": "User Authentication",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Open the vault access flow"
+      },
+      {
+        "type": "action",
+        "description": "Switch to the sign in view"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the email field with {{LOGIN_USER}}"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the password field with {{LOGIN_PASSWORD}}"
+      },
+      {
+        "type": "action",
+        "description": "Submit the form"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the vault is displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC003",
+    "title": "Create a new vault account",
+    "description": "A visitor can create a new account and reach the next onboarding step.",
+    "category": "User Authentication",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Open the vault access flow"
+      },
+      {
+        "type": "action",
+        "description": "Switch to the create account view"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the email field with {{LOGIN_USER}}"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the password field with {{LOGIN_PASSWORD}}"
+      },
+      {
+        "type": "action",
+        "description": "Submit the form"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the next onboarding step is displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC004",
+    "title": "Enter the demo vault",
+    "description": "A visitor can open the demo vault and land in the pre-seeded vault view.",
+    "category": "User Authentication",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Open the vault access flow"
+      },
+      {
+        "type": "action",
+        "description": "Choose the demo vault option"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the vault is displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify pre-seeded vault items are displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC005",
+    "title": "Unlock a locked item and view decrypted details",
+    "description": "Verifies that a signed-in user can unlock a protected vault item with a PIN and view the decrypted details.",
+    "category": "PIN Verification & Decryption",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the login credentials with {{LOGIN_USER}}"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the password field with {{LOGIN_PASSWORD}}"
+      },
+      {
+        "type": "action",
+        "description": "Submit the sign-in form"
+      },
+      {
+        "type": "action",
+        "description": "Wait for the vault dashboard to load"
+      },
+      {
+        "type": "action",
+        "description": "Select a locked vault item"
+      },
+      {
+        "type": "action",
+        "description": "Enter the 4-digit security PIN"
+      },
+      {
+        "type": "action",
+        "description": "Submit the PIN"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the decrypted item details are displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify copy controls for the revealed data are visible"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC006",
+    "title": "Complete profile setup with details",
+    "description": "A newly authenticated user can save their profile details and continue onboarding.",
+    "category": "First-Time Profile Setup",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Open the vault access flow"
+      },
+      {
+        "type": "action",
+        "description": "Switch to the create account view"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the email field with {{LOGIN_USER}}"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the password field with {{LOGIN_PASSWORD}}"
+      },
+      {
+        "type": "action",
+        "description": "Submit the form"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the full name field with Test User"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the optional phone field with a valid phone number"
+      },
+      {
+        "type": "action",
+        "description": "Upload an avatar photo from the local device"
+      },
+      {
+        "type": "action",
+        "description": "Continue to save the profile"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the next setup step is displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC007",
+    "title": "Add a document to the vault and return to browsing",
+    "description": "Verifies that a signed-in user can add a document, see the success celebration, and return to the vault.",
+    "category": "Add Item with Celebration Popup",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the login credentials with {{LOGIN_USER}}"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the password field with {{LOGIN_PASSWORD}}"
+      },
+      {
+        "type": "action",
+        "description": "Submit the sign-in form"
+      },
+      {
+        "type": "action",
+        "description": "Wait for the vault dashboard to load"
+      },
+      {
+        "type": "action",
+        "description": "Open the add item flow"
+      },
+      {
+        "type": "action",
+        "description": "Choose the document option"
+      },
+      {
+        "type": "action",
+        "description": "Add a valid document file"
+      },
+      {
+        "type": "action",
+        "description": "Save the item to the vault"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify a celebratory success confirmation is visible"
+      },
+      {
+        "type": "action",
+        "description": "Choose to return to the vault"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the vault dashboard is visible"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC008",
+    "title": "Browse all vault items",
+    "description": "Verifies that a signed-in user can open the vault and see the full list of items with their status details.",
+    "category": "Vault Item Categories & Search",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the login credentials with {{LOGIN_USER}}"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the password field with {{LOGIN_PASSWORD}}"
+      },
+      {
+        "type": "action",
+        "description": "Submit the sign-in form"
+      },
+      {
+        "type": "action",
+        "description": "Wait for the vault dashboard to load"
+      },
+      {
+        "type": "action",
+        "description": "Select the All category"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the full vault item list is displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify item status details are visible"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC009",
+    "title": "Search for a vault item in real time",
+    "description": "Verifies that a signed-in user can search the vault and see matching items update as they type.",
+    "category": "Vault Item Categories & Search",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the login credentials with {{LOGIN_USER}}"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the password field with {{LOGIN_PASSWORD}}"
+      },
+      {
+        "type": "action",
+        "description": "Submit the sign-in form"
+      },
+      {
+        "type": "action",
+        "description": "Wait for the vault dashboard to load"
+      },
+      {
+        "type": "action",
+        "description": "Type a search term into the search input"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify matching vault items are displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the item list updates in real time"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC010",
+    "title": "Filter vault items by category",
+    "description": "Verifies that a signed-in user can switch to a specific category and see only matching vault items.",
+    "category": "Vault Item Categories & Search",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the login credentials with {{LOGIN_USER}}"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the password field with {{LOGIN_PASSWORD}}"
+      },
+      {
+        "type": "action",
+        "description": "Submit the sign-in form"
+      },
+      {
+        "type": "action",
+        "description": "Wait for the vault dashboard to load"
+      },
+      {
+        "type": "action",
+        "description": "Select a specific vault category"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify only matching items are displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify non-matching categories are not shown"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC011",
+    "title": "Add a password and continue adding items",
+    "description": "Verifies that a signed-in user can save a new password, see the success celebration, and choose to add another item.",
+    "category": "Add Item with Celebration Popup",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the login credentials with {{LOGIN_USER}}"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the password field with {{LOGIN_PASSWORD}}"
+      },
+      {
+        "type": "action",
+        "description": "Submit the sign-in form"
+      },
+      {
+        "type": "action",
+        "description": "Wait for the vault dashboard to load"
+      },
+      {
+        "type": "action",
+        "description": "Open the add item flow"
+      },
+      {
+        "type": "action",
+        "description": "Choose the password option"
+      },
+      {
+        "type": "action",
+        "description": "Generate or enter a secure password"
+      },
+      {
+        "type": "action",
+        "description": "Save the item to the vault"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify a celebratory success confirmation is visible"
+      },
+      {
+        "type": "action",
+        "description": "Choose to add another item"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the add item flow remains open"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC012",
+    "title": "Copy decrypted vault details",
+    "description": "Verifies that a signed-in user can unlock an item and copy the revealed sensitive details.",
+    "category": "PIN Verification & Decryption",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the login credentials with {{LOGIN_USER}}"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the password field with {{LOGIN_PASSWORD}}"
+      },
+      {
+        "type": "action",
+        "description": "Submit the sign-in form"
+      },
+      {
+        "type": "action",
+        "description": "Wait for the vault dashboard to load"
+      },
+      {
+        "type": "action",
+        "description": "Select a locked vault item"
+      },
+      {
+        "type": "action",
+        "description": "Enter the 4-digit security PIN"
+      },
+      {
+        "type": "action",
+        "description": "Submit the PIN"
+      },
+      {
+        "type": "action",
+        "description": "Copy the revealed credential"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify a copied confirmation is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the decrypted details remain visible"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC013",
+    "title": "Show an error for invalid sign in",
+    "description": "A visitor sees an error when signing in with invalid credentials.",
+    "category": "User Authentication",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Open the vault access flow"
+      },
+      {
+        "type": "action",
+        "description": "Switch to the sign in view"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the email field with invalid@example.com"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the password field with invalid-password"
+      },
+      {
+        "type": "action",
+        "description": "Submit the form"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify an error alert is visible"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC014",
+    "title": "Show an empty state when search has no matches",
+    "description": "Verifies that a signed-in user sees an empty result state when searching for something that does not exist.",
+    "category": "Vault Item Categories & Search",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the login credentials with {{LOGIN_USER}}"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the password field with {{LOGIN_PASSWORD}}"
+      },
+      {
+        "type": "action",
+        "description": "Submit the sign-in form"
+      },
+      {
+        "type": "action",
+        "description": "Wait for the vault dashboard to load"
+      },
+      {
+        "type": "action",
+        "description": "Type a search term with no matches into the search input"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify an empty state message is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify no vault items are displayed"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC015",
+    "title": "Reject mismatched PIN confirmation",
+    "description": "A user sees a PIN mismatch error when the confirmation PIN does not match the first entry.",
+    "category": "4-Digit Security PIN Setup",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Open the vault access flow"
+      },
+      {
+        "type": "action",
+        "description": "Switch to the create account view"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the email field with {{LOGIN_USER}}"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the password field with {{LOGIN_PASSWORD}}"
+      },
+      {
+        "type": "action",
+        "description": "Submit the form"
+      },
+      {
+        "type": "action",
+        "description": "Enter a 4-digit PIN"
+      },
+      {
+        "type": "action",
+        "description": "Re-enter a different 4-digit PIN"
+      },
+      {
+        "type": "action",
+        "description": "Attempt to continue"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify a PIN mismatch error is visible"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC016",
+    "title": "Lock out repeated failed PIN attempts",
+    "description": "Verifies that a signed-in user is temporarily locked out after five incorrect PIN attempts on a locked item.",
+    "category": "PIN Verification & Decryption",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /login"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the login credentials with {{LOGIN_USER}}"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the password field with {{LOGIN_PASSWORD}}"
+      },
+      {
+        "type": "action",
+        "description": "Submit the sign-in form"
+      },
+      {
+        "type": "action",
+        "description": "Wait for the vault dashboard to load"
+      },
+      {
+        "type": "action",
+        "description": "Select a locked vault item"
+      },
+      {
+        "type": "action",
+        "description": "Enter an incorrect 4-digit PIN"
+      },
+      {
+        "type": "action",
+        "description": "Submit the PIN"
+      },
+      {
+        "type": "action",
+        "description": "Repeat the incorrect PIN entry until the fifth failed attempt"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify a temporary lockout message is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify unlocking is blocked during the lockout"
+      }
+    ],
+    "priority": "Low"
+  }
+]

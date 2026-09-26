@@ -44,19 +44,45 @@ app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', app: 'SecureVault API', db: 'Neon PostgreSQL', timestamp: new Date().toISOString() });
 });
 
+// Lazy database initialization ensuring zero-delay connections in serverless environments (Vercel)
+let isDbReady = false;
+let dbInitPromise = null;
+
+export async function ensureDatabase() {
+  if (isDbReady) return;
+  if (!dbInitPromise) {
+    dbInitPromise = (async () => {
+      await initDatabase();
+      startKeepAlive();
+      isDbReady = true;
+      console.log('[SecureVault] Neon PostgreSQL connected successfully.');
+    })();
+  }
+  return dbInitPromise;
+}
+
+// Ensure database is ready before executing routes
+app.use(async (req, res, next) => {
+  if (req.path === '/api/health') return next();
+  try {
+    await ensureDatabase();
+    next();
+  } catch (err) {
+    console.error('[SecureVault] Database connection failed:', err);
+    res.status(500).json({ error: 'Database connection failed.' });
+  }
+});
+
 // Error handling middleware
 app.use((err, req, res, next) => {
   console.error('Unhandled server error:', err);
   res.status(500).json({ error: 'Internal server error occurred.' });
 });
 
-// Initialize DB then start server
+// Start local listener if not in serverless environment
 async function startServer() {
   try {
-    await initDatabase();
-    startKeepAlive();
-    console.log('[SecureVault] Neon PostgreSQL connected successfully.');
-
+    await ensureDatabase();
     app.listen(PORT, () => {
       console.log(`[SecureVault] Backend listening on http://localhost:${PORT}`);
     });
@@ -66,4 +92,8 @@ async function startServer() {
   }
 }
 
-startServer();
+if (!process.env.VERCEL) {
+  startServer();
+}
+
+export default app;
